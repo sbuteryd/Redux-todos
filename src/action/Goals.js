@@ -18,3 +18,4 @@ function removeGoal(id) {
     }
 }
 
+
