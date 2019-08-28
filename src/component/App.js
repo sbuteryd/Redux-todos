@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import ConnectedTodos from './Todos'
 import ConnectedGoals from './Goals'
-import API from 'goals-todos-api'
 import {connect} from 'react-redux'
 import {handleReceiveData} from '../action/share'
 class App extends Component{
