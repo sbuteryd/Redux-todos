@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function List() {
+function List(props) {
     return(
         <ul>
             <li>
