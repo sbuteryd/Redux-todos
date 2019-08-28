@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import List from './List'
-
+import {connect} from 'react-redux'
 
 class Goals extends Component{
     render() {
@@ -15,4 +15,10 @@ class Goals extends Component{
     }
 }
 
-export default Goals
+function mapStateToProps({goals}) {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps)(Goals)

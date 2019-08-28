@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import List from './List'
+import {connect} from 'react-redux'
 
 class Todos extends Component{
     render() {
@@ -14,4 +15,10 @@ class Todos extends Component{
     }
 }
 
-export default Todos
+function mapStateToProps(todos) {
+    return {
+        todos
+    }
+}
+
+export default connect(mapStateToProps)(Todos)
