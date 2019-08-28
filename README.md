@@ -15,4 +15,5 @@
     * http://localhost:3000/
 
 预览如下：
-![view#2]('/public/view.png')
+
+![view](https://github.com/sbuteryd/Redux-todos/blob/master/public/view.png)
