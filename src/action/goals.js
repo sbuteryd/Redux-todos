@@ -1,5 +1,5 @@
-const ADD_GOALS ='ADD_GOALS';
-const REMOVE_GOALS ='ADD_GOALS';
+export const ADD_GOALS ='ADD_GOALS';
+export const REMOVE_GOALS ='ADD_GOALS';
 
 
 
