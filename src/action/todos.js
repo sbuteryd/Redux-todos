@@ -36,3 +36,13 @@ export function handleTodo(name,cb) {
         })
     }
 }
+
+export function handleRemoveTodo(name) {
+    return (dispatch)=>{
+        dispatch(removeTodo(name.id))
+        return API.deleteGoal(name.id).catch(()=>{
+            dispatch(addTodo(name))
+            alert('错误添加请重试')
+        })
+    }
+}
