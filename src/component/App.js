@@ -3,12 +3,11 @@ import ConnectedTodos from './Todos'
 import ConnectedGoals from './Goals'
 import API from 'goals-todos-api'
 import {connect} from 'react-redux'
-import {receiveData} from '../action/share'
+import {handleReceiveData} from '../action/share'
 class App extends Component{
     componentDidMount() {
-        Promise.all([API.fetchTodos(),API.fetchGoals()]).then(([todos,goals])=>{
-            this.props.dispatch(receiveData(todos,goals))
-        })
+        const {dispatch} =this.props
+        dispatch(handleReceiveData())
     }
     render() {
         if(this.props.loading===true){
