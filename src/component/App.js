@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import Todos from './Todos'
-import Goals from './Goals'
+import ConnectedTodos from './Todos'
+import ConnectedGoals from './Goals'
 import API from 'goals-todos-api'
 import {connect} from 'react-redux'
 import {receiveData} from '../action/share'
@@ -16,8 +16,8 @@ class App extends Component{
         }
         return (
             <div>
-                <Todos/>
-                <Goals/>
+                <ConnectedTodos/>
+                <ConnectedGoals/>
             </div>
         );
     }

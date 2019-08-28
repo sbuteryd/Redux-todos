@@ -10,7 +10,7 @@ import {
 
 
 
-function todos(state=[],action) {
+export default  function todos(state=[],action) {
     switch (action.type) {
         case ADD_TODO:
             return state.concat([action.todo])
@@ -27,4 +27,3 @@ function todos(state=[],action) {
             return state
     }
 }
-export default todos

@@ -1,13 +1,13 @@
 import API from 'goals-todos-api'
-export const ADD_GOALS ='ADD_GOALS';
-export const REMOVE_GOALS ='REMOVE_GOALS';
+export const ADD_GOAL ='ADD_GOAL';
+export const REMOVE_GOAL ='REMOVE_GOALS';
 
 
 
 
 export function addGoal(goal) {
     return {
-        type:ADD_GOALS,
+        type:ADD_GOAL,
         goal,
     }
 }
@@ -15,7 +15,7 @@ export function addGoal(goal) {
 export function removeGoal(id) {
     console.log('action------id',id)
     return {
-        type: REMOVE_GOALS,
+        type: REMOVE_GOAL,
         id
     }
 }
@@ -32,7 +32,7 @@ export function handleAddGoal(name,cb) {
     }
 }
 
-export function handleRemoveGoal(name) {
+export function handleDeleteGoal(name) {
     console.log('handleRemoveGoal',name.id)
     return (dispatch)=>{
         dispatch(removeGoal(name.id))

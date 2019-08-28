@@ -2,30 +2,29 @@ import API from 'goals-todos-api'
 export const ADD_TODO = 'ADD_TODO'
 export const REMOVE_TODO ='REMOVE_TODO';
 export const TOGGLE_TODO='TOGGLE_TODO'
-export const RECEIVE_TODO ='RECEIVE_TODO'
 
-export function addTodo(todo) {
+function addTodo(todo) {
     return {
         type:ADD_TODO,
         todo
     }
 }
 
-export function removeTodo(id) {
+function removeTodo(id) {
     return {
         type:REMOVE_TODO,
         id
     }
 }
 
-export function toggleTodo(id) {
+function toggleTodo(id) {
     return {
         type:TOGGLE_TODO,
         id
     }
 }
 
-export function handleTodo(name,cb) {
+export function handleAddTodo(name,cb) {
     return (dispatch)=>{
         return API.saveTodo(name)
             .then((name)=>{
@@ -37,12 +36,22 @@ export function handleTodo(name,cb) {
     }
 }
 
-export function handleRemoveTodo(name) {
+export function handleDeleteTodo(name) {
     return (dispatch)=>{
         dispatch(removeTodo(name.id))
         return API.deleteGoal(name.id).catch(()=>{
             dispatch(addTodo(name))
             alert('错误添加请重试')
         })
+    }
+}
+
+export function handleToggle(id) {
+    return (dispatch)=>{
+        dispatch(toggleTodo(id))
+       return  API.saveTodoToggle(id).catch(()=>{
+           dispatch(toggleTodo(id))
+           alert("An error occurred. Try agian")
+       })
     }
 }

@@ -1,19 +1,23 @@
 import React,{Component} from 'react'
 import List from './List'
 import {connect} from 'react-redux'
-import {handleTodo,handleRemoveTodo,toggleTodo} from  '../action/todos'
+import {
+    handleAddTodo,
+    handleDeleteTodo,
+    handleToggle
+} from  '../action/todos'
 
 class Todos extends Component{
-    getInputValue =(e)=>{
+    addItem =(e)=>{
         e.preventDefault()
         const todo = this.input.value
-        this.props.dispatch(handleTodo(todo,()=>this.input.value =''))
+        this.props.dispatch(handleAddTodo(todo,()=>this.input.value =''))
     }
-    deleteList =(name)=>{
-        this.props.dispatch(handleRemoveTodo(name))
+    removeItem =(name)=>{
+        this.props.dispatch(handleDeleteTodo(name))
     }
-    toggleTodoList =(id)=>{
-        this.props.dispatch(toggleTodo(id))
+    toggleItem =(id)=>{
+        this.props.dispatch(handleToggle(id))
     }
     render() {
         const {todos}=this.props
@@ -21,11 +25,11 @@ class Todos extends Component{
             <div>
                 <h3>Todos</h3>
                 <input type="text" ref={(input)=>this.input=input}/>
-                <button onClick={this.getInputValue}>提交</button>
+                <button onClick={this.addItem}>提交</button>
                 <List
-                    items={todos}
-                    deleteList={this.deleteList}
-                    toggleTodoList={this.toggleTodoList}
+                    toggle={this.toggleItem}
+                    items={this.props.todos}
+                    remove={this.removeItem}
                 />
             </div>
         );

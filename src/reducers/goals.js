@@ -1,12 +1,17 @@
-import {ADD_GOALS,REMOVE_GOALS} from '../action/goals'
-import {RECEIVE_DATA} from '../action/share'
+import {
+    ADD_GOAL,
+    REMOVE_GOAL
+} from '../action/goals'
+import {
+    RECEIVE_DATA
+} from '../action/share'
 
 
-function goals(state=[],action) {
+export default function goals(state=[],action) {
     switch (action.type) {
-        case ADD_GOALS:
+        case ADD_GOAL:
             return state.concat([action.goal])
-        case REMOVE_GOALS:
+        case REMOVE_GOAL:
             return state.filter((goal) => goal.id !== action.id)
         case RECEIVE_DATA:
             return  action.goals
@@ -15,4 +20,4 @@ function goals(state=[],action) {
     }
 }
 
-export default goals
+
