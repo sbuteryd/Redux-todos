@@ -1,4 +1,4 @@
-const RECEIVE_DATA =  'RECEIVE_DATA';
+export const RECEIVE_DATA =  'RECEIVE_DATA';
 
 
 export function receiveData(todos,goals) {
@@ -8,4 +8,3 @@ export function receiveData(todos,goals) {
         goals
     }
 }
-

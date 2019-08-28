@@ -1,8 +1,12 @@
 import {
     ADD_TODO,
     REMOVE_TODO,
-    TOGGLE_TODO
+    TOGGLE_TODO,
 } from '../action/todos'
+
+import {
+    RECEIVE_DATA
+} from '../action/share'
 
 
 
@@ -17,6 +21,8 @@ function todos(state=[],action) {
                 ? todo
                 :Object.assign({},todo,{component:!todo.component})
             )
+        case RECEIVE_DATA:
+            return  action.todos
         default:
             return state
     }
