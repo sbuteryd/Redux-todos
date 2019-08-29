@@ -1,8 +1,13 @@
 import React,{Component} from 'react';
 import ConnectTodos from '../component/Todos'
 import ConnectGoals from '../component/Goals'
+import {handleReceiveData} from '../action/share'
+import  {connect} from 'react-redux'
 
-export default class App extends Component{
+class App extends Component{
+    componentDidMount() {
+        this.props.dispatch(handleReceiveData())
+    }
     render() {
         return (
             <div>
@@ -12,3 +17,5 @@ export default class App extends Component{
         );
     }
 }
+
+export default connect()(App)

@@ -4,6 +4,9 @@ import {
     TOGGLE_TODO
 } from '../action/todos'
 
+import {RECEIVE_DATA} from '../action/share'
+
+
 
 function todos(state=[],action) {
     switch (action.type) {
@@ -16,6 +19,9 @@ function todos(state=[],action) {
                 ? todo
                 : Object.assign({},todo,{complete:!todo.complete})
             )
+        case RECEIVE_DATA:
+            return  action.todos
+
         default:
             return state
     }

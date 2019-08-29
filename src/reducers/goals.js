@@ -3,6 +3,8 @@ import {
     REMOVE_GOALS,
 } from '../action/goals'
 
+import {RECEIVE_DATA} from '../action/share'
+
 
 function goals(state=[],action) {
     switch (action.type) {
@@ -10,6 +12,8 @@ function goals(state=[],action) {
             return state.concat([action.goal])
         case REMOVE_GOALS:
             return  state.filter((goal)=> goal.id !== action.id)
+        case RECEIVE_DATA:
+            return  action.goals
         default:
             return state
     }
