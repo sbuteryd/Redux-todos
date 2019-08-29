@@ -9,6 +9,9 @@ class App extends Component{
         this.props.dispatch(handleReceiveData())
     }
     render() {
+        if(this.props.loading ===true){
+            return <h3>Loading</h3>
+        }
         return (
             <div>
                 <ConnectTodos/>
@@ -18,4 +21,10 @@ class App extends Component{
     }
 }
 
-export default connect()(App)
+function mapStateToProps({loading}) {
+    return {
+        loading
+    }
+}
+
+export default connect(mapStateToProps)(App)
