@@ -10,7 +10,7 @@ import {
 class Todos extends Component{
     addItem =(e)=>{
         e.preventDefault()
-        const todo = this.input.value
+        const todo = this.input.value ? this.input.value:alert("请输入值")
         this.props.dispatch(handleAddTodo(todo,()=>this.input.value =''))
     }
     removeItem =(name)=>{

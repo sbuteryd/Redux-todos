@@ -9,7 +9,8 @@ import {
 class Goals extends Component{
     addItem=(e)=>{
         e.preventDefault()
-        const name = this.input.value
+        const name = this.input.value ? this.input.value: alert("请输入字符串")
+
         this.props.dispatch(handleAddGoal(name,()=>this.input.value=''))
     }
     removeItem =(goal)=>{
