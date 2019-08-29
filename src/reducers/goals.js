@@ -7,7 +7,7 @@ import {
 function goals(state=[],action) {
     switch (action.type) {
         case ADD_GOALS:
-            return state.concat([action.goals])
+            return state.concat([action.goal])
         case REMOVE_GOALS:
             return  state.filter((goal)=> goal.id !== action.id)
         default:

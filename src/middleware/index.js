@@ -1,6 +1,6 @@
 import {applyMiddleware} from "redux";
 import logger from './logger'
-import thunk from 'react-redux'
+import thunk from 'redux-thunk'
 import check from './check'
 
 export default applyMiddleware(

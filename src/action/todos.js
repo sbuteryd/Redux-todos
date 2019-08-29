@@ -25,10 +25,11 @@ function toggleTodo(id) {
     }
 }
 
-export function handleAddTodo(todo) {
+export function handleAddTodo(todo,cb) {
     return (dispatch)=>{
-        return API.saveTodo(todo).catch(()=>{
+        return API.saveTodo(todo).then((todo)=>{
             dispatch(addTodo(todo))
+            cb()
         }).catch(()=>{
             alert("错误添加请重试")
         })
@@ -45,3 +46,11 @@ export function handleDeleteTodo(todo) {
     }
 }
 
+export function handleToggleTodo(id) {
+    return (dispatch)=>{
+        dispatch(toggleTodo(id))
+        return API.saveTodoToggle(id).catch(()=>{
+            dispatch(toggleTodo(id))
+        })
+    }
+}

@@ -1,6 +1,7 @@
 import {
     ADD_TODO
 } from '../action/todos'
+
 import {
     ADD_GOALS
 } from '../action/goals'
@@ -12,7 +13,7 @@ const check = (store)=>(next)=>(action)=>{
             .includes('bitcoin')){
         return alert('That is bad ideal')
     }
-    if(action.type ===ADD_GOALS && action.goal.name.toLowerCase().includes('bitcoin')){
+    if(action.type === ADD_GOALS && action.goal.name.toLowerCase().includes('bitcoin')){
         return  alert("That is bad ideal")
     }
     return next(action)

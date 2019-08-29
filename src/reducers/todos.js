@@ -14,7 +14,7 @@ function todos(state=[],action) {
         case TOGGLE_TODO:
             return  state.map((todo)=> todo.id !== action.id
                 ? todo
-                : Object.assign({},todo,{component:!todo.component})
+                : Object.assign({},todo,{complete:!todo.complete})
             )
         default:
             return state

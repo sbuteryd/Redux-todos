@@ -20,10 +20,11 @@ export function removeGoal(id) {
 }
 
 
-export function handleAddGoal(goal) {
+export function handleAddGoal(goal,cb) {
     return (dispatch)=>{
         return API.saveGoal(goal).then((goal)=>{
             dispatch(addGoal(goal))
+            cb()
         }).catch(()=>{
             alert("错误添加请重试")
         })
