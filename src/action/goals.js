@@ -1,7 +1,7 @@
 import API from 'goals-todos-api'
 
-const ADD_GOAL ='ADD_GOAL'
-const REMOVE_GOAL ='REMOVE_GOAL'
+export const ADD_GOAL ='ADD_GOAL'
+export const REMOVE_GOAL ='REMOVE_GOAL'
 
 
 //action
@@ -22,10 +22,11 @@ function removeGoal(id) {
 
 //thunk
 
-export function handleGoal(goal) {
+export function handleAddGoal(goal,cb) {
     return (dispatch)=>{
         API.saveGoal(goal).then((goal)=>{
             dispatch(addGoal(goal))
+            cb()
         }).catch(()=>{
             alert("失败添加请重试")
         })

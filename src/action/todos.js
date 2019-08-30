@@ -1,16 +1,16 @@
 import  API from 'goals-todos-api'
 
 //action
-const ADD_TODO ='ADD_TODO'
-const REMOVE_TODO ='REMOVE_TODO'
-const TOGGLE_TODO ='TOGGLE_TODO'
+export const ADD_TODO ='ADD_TODO'
+export const REMOVE_TODO ='REMOVE_TODO'
+export const TOGGLE_TODO ='TOGGLE_TODO'
 
 
 //action  function
 function addTodo(todo) {
     return {
         type:ADD_TODO,
-        ADD_TODO
+        todo
     }
 }
 
@@ -30,17 +30,18 @@ function toggleTodo(id) {
 
 //thunk
 
-export function handleTodo(todo) {
+export function handleTodo(todo,cb) {
     return (dispatch)=>{
        return API.saveTodo(todo).then((todo)=>{
             dispatch(addTodo(todo))
+           cb()
         }).catch(()=>{
-            alert("错误添加请重试")
+           alert("错误添加请重试")
        })
     }
 }
 
-export function removeTodo(todo) {
+export function handleRemoveTodo(todo) {
     return (dispatch)=>{
         dispatch(removeTodo(todo.id))
         return API.deleteTodo(todo.id).catch(()=>{
@@ -50,7 +51,7 @@ export function removeTodo(todo) {
     }
 }
 
-export function toggleTodo(id) {
+export function handletoggleTodo(id) {
     return (dispatch)=>{
         dispatch(toggleTodo(id))
         return API.saveTodoToggle(id).catch((id)=>{

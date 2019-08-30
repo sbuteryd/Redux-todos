@@ -1,5 +1,5 @@
 import API from 'goals-todos-api'
-const RECEIVE_DATA ='RECEIVE_DATA'
+export const RECEIVE_DATA ='RECEIVE_DATA'
 
 
 
@@ -13,10 +13,10 @@ function receiveData(todos,goals) {
 }
 
 
-//thunk
+//thunks
 export function handleReceive() {
     return (dispatch)=>{
-        Promise.all([API.fetchTodos(),API.fetchGoals()]).then(([todos,goals])=>{
+       return  Promise.all([API.fetchTodos(),API.fetchGoals()]).then(([todos,goals])=>{
             dispatch(receiveData(todos,goals))
         })
     }
